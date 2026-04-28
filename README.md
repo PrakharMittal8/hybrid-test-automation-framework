@@ -454,7 +454,98 @@ This framework can be reused for any new project by replacing:
 
 Core framework architecture remains reusable.
 
+-------------------------------------------------------------------------------
+## Prerequisites & Setup
+
+Before running this framework, complete the below setup:
+
+### 1. Install Required Tools
+- Java 17
+- Maven
+- Chrome / Firefox / Edge browser
+- IDE (IntelliJ / Eclipse / VS Code)
+
 ---
+
+### 2. Clone Repository
+
+```bash
+git clone https://github.com/PrakharMittal8/hybrid-test-automation-framework.git
+cd hybrid-test-automation-framework
+```
+
+---
+
+### 3. Create Test Application Account
+
+This framework uses Rahul Shetty Academy E-commerce application:
+
+https://rahulshettyacademy.com/client
+
+Create your own account manually on the application.
+
+Use your own:
+- Email ID
+- Password
+
+Do NOT rely on my credentials.
+
+---
+
+### 4. Update Credentials in Properties File
+
+Update your credentials inside:
+
+```plaintext
+src/test/resources/config-qa.properties
+src/test/resources/config-dev.properties
+src/test/resources/config-prod.properties
+```
+
+Example:
+
+```properties
+username=your_email@gmail.com
+password=your_password
+```
+
+---
+
+### 5. Update Excel Test Data
+
+Update your credentials inside:
+
+```plaintext
+src/test/resources/testdata/LoginTestData.xlsx
+```
+
+Replace:
+- username
+- password
+
+with your own credentials.
+
+You can also modify product names for data-driven execution.
+
+---
+
+### 6. Run Framework
+
+If Maven Wrapper is unavailable in GitHub upload:
+
+```bash
+mvn clean test
+```
+
+Run specific environment:
+
+```bash
+mvn clean test -Denv=qa
+mvn clean test -Denv=dev
+mvn clean test -Denv=prod
+
+-------------------------------------------------------------------------------
+
 
 # Author
 
