@@ -1,5 +1,4 @@
 package com.automation.utils;
-
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -11,7 +10,7 @@ public class ConfigReader {
         try {
 
             String env = System.getProperty("env", "qa");
-
+            
             FileInputStream fis = new FileInputStream(
                     "src/test/resources/config-" + env + ".properties"
             );

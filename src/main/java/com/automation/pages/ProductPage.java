@@ -13,7 +13,6 @@ public class ProductPage extends BasePage {
 
     private By products = By.cssSelector(".mb-3");
     private By cartBtn = By.xpath("//button[@routerlink='/dashboard/cart']");
-    //wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));
     private By spinner = By.cssSelector(".ng-animating");
 
     public void addProductToCart(String productName){

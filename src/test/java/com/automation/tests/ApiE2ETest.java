@@ -108,7 +108,7 @@ public class ApiE2ETest extends ApiBase {
                 200
         );
 
-        System.out.println(addCartResponse.asString());
+        System.out.println(">>-----------------"+addCartResponse.asString());
 
         //-----------------------------------
         // Step 4 → Validate cart

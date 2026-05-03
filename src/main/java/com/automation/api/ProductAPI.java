@@ -4,9 +4,13 @@ import com.automation.utils.ApiUtils;
 import io.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ProductAPI {
 
+    private static final Logger log =
+        LogManager.getLogger(ProductAPI.class);
     public static Response getAllProducts(String token) {
 
         JSONObject requestBody = new JSONObject();
@@ -17,11 +21,15 @@ public class ProductAPI {
         requestBody.put("productCategory", new JSONArray());
         requestBody.put("productSubCategory", new JSONArray());
         requestBody.put("productFor", new JSONArray());
+        log.info("Fetching all products");
 
-        return ApiUtils.getRequestSpec(token)
+        Response response = ApiUtils.getRequestSpec(token)
                 .body(requestBody.toString())
                 .when()
                 .post("/api/ecom/product/get-all-products");
+        log.info("Products API Response: " + response.asString());
+        
+        return response;
     }
 
     public static Response addProductToCart(
@@ -39,9 +47,15 @@ public class ProductAPI {
         requestBody.put("_id", userId);
         requestBody.put("product", productObject);
 
-        return ApiUtils.getRequestSpec(token)
+        log.info("Adding product to cart: " + productName);
+
+        Response response = ApiUtils.getRequestSpec(token)
                 .body(requestBody.toString())
                 .when()
                 .post("/api/ecom/user/add-to-cart");
+
+        log.info("Add to cart response: " + response.asString());
+
+        return response;
     }
 }

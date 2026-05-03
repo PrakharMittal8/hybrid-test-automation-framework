@@ -23,7 +23,7 @@ public class AddToCartTest extends BaseTest {
         );
 
         productPage.addProductToCart("ZARA COAT 3");
-       
+       // Thread.sleep(2000);
         productPage.goToCart();
 
         Assert.assertTrue(
